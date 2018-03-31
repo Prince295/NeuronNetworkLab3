@@ -1,10 +1,13 @@
 import numpy as np
 from objects import *
+import tkinter as interface
+
 
 def recognition_x(T,x,B):
     S=[]
     for i in range(len(T)):
         S.append(get_s(T[i],x,B[i]))
+    output_S.append(S)
     return S.index(np.max(S))
 
 
@@ -89,6 +92,9 @@ def input_matrix():
         new_value[i] = input_matrix_number()
     x[input_number()] = new_value
     return x
+
+
+
 
 
 

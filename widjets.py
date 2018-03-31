@@ -4,20 +4,20 @@ class Root():
     root = interface.Tk()
     root.geometry( '800x600+150+150' )
 
-class Forms():
-    form = interface.Frame(Root.root)
-    form['bg'] = 'white'
-    form['padx'] = 0
+class Forms(interface.Frame):
+    def __init__(self, parent = None, **configs):
+        interface.Frame.__init__(self, parent, **configs)
+        self.pack()
+        self.config( bg = 'white', padx = 0)
 
 
-    nav = interface.Frame(Root.root)
-    nav['bg'] = 'white'
-    nav['highlightbackground'] = 'yellow'
-    nav['padx'] = 30
-    nav['pady'] = 30
+class Navs(interface.Frame):
+    def __init__(self, parent = None, **configs):
+        interface.Frame.__init__(self, parent, **configs)
+        self.pack()
+        self.config( bg = 'white', padx = 30, pady = 30)
 
-    def __init__(self,form):
-        self.form = form
+
 
 
 class ThemedForm(interface.Frame):
@@ -43,3 +43,15 @@ class ThemedLabel(interface.Label):
         interface.Label.__init__(self, parent, **configs)
         self.pack()
         self.config(fg='black', bg = 'white', font = 'times 30', relief='solid', justify = 'center', bd=3)
+
+class OutLabel(interface.Label):
+    def __init__(self,parent = None, **configs):
+        interface.Label.__init__(self, parent, **configs)
+        self.pack()
+        self.config(fg='black', bg = 'white', font = 'verdana 13', relief = 'solid', justify = 'center', bd = 0, width = 100)
+
+class HeaderLabel(interface.Label):
+    def __init__(self,parent = None, **configs):
+        interface.Label.__init__(self, parent, **configs)
+        self.pack()
+        self.config( fg='black', bg='white', font='verdana 20', relief='solid', justify='center', bd=3, width=100 )

@@ -8,11 +8,13 @@ for i in range(len(x)):
     S = recognition_x(T,x[i],B)
     if S != 0:
         summ, c = comparition(T[S],x[i])
+        print(summ)
         if summ>p:
             retraining(c,T, B, S)
         else:
             training(x[i],T,B)
     else:
+        print(0)
         training(x[i],T,B)
 
 
